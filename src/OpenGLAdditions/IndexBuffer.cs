@@ -1,5 +1,4 @@
-﻿using System;
-using OpenGL;
+﻿using OpenTK.Graphics.OpenGL4;
 
 namespace BlockCSharp.OpenGLAdditions
 {
@@ -9,19 +8,17 @@ namespace BlockCSharp.OpenGLAdditions
         
         public void Create()
         {
-            uint[] ids = new uint[1];
-            Gl.GenBuffers(ids);
-            Id = ids[0];
+            GL.GenBuffers(1, out Id);
         }
 
         public void Bind()
         {
-            Gl.BindBuffer(BufferTarget.ElementArrayBuffer, Id);
+            GL.BindBuffer(BufferTarget.ElementArrayBuffer, Id);
         }
 
         public void SetData(uint[] rawData)
         {
-            Gl.BufferData(BufferTarget.ElementArrayBuffer, (uint)rawData.Length * sizeof(uint), rawData, BufferUsage.StaticDraw);
+            GL.BufferData(BufferTarget.ElementArrayBuffer, rawData.Length * sizeof(uint), rawData, BufferUsageHint.StaticDraw);
         }
     }
 }

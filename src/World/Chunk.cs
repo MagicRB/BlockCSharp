@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using BlockCSharp.BaseClasses;
 using BlockCSharp.Interfaces;
 using BlockCSharp.OpenGLAdditions;
-using OpenGL;
+using OpenTK.Graphics.OpenGL4;
 
 namespace BlockCSharp.World
 {
@@ -21,25 +20,25 @@ namespace BlockCSharp.World
 
         public void Render()
         {
-            Gl.EnableVertexAttribArray(0);
-            Gl.EnableVertexAttribArray(1);
-            Gl.EnableVertexAttribArray(2);
-            Gl.EnableVertexAttribArray(3);
+            GL.EnableVertexAttribArray(0);
+            GL.EnableVertexAttribArray(1);
+            GL.EnableVertexAttribArray(2);
+            GL.EnableVertexAttribArray(3);
                         
             VertexBuffer.Bind();
             IndexBuffer.Bind();
                         
-            Gl.VertexAttribPointer(0, 3, VertexAttribType.Float, false, /*0*/ 10 * sizeof(float), new IntPtr(0 * sizeof(float)));
-            Gl.VertexAttribPointer(1, 4, VertexAttribType.Float, false, /*3*/ 10 * sizeof(float), new IntPtr(3 * sizeof(float)));
-            Gl.VertexAttribPointer(2, 2, VertexAttribType.Float, false, /*7*/ 10 * sizeof(float), new IntPtr(7 * sizeof(float)));
-            Gl.VertexAttribPointer(3, 1, VertexAttribType.Float, false, /*9*/ 10 * sizeof(float), new IntPtr(9 * sizeof(float)));
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, /*0*/ 10 * sizeof(float), new IntPtr(0 * sizeof(float)));
+            GL.VertexAttribPointer(1, 4, VertexAttribPointerType.Float, false, /*3*/ 10 * sizeof(float), new IntPtr(3 * sizeof(float)));
+            GL.VertexAttribPointer(2, 2, VertexAttribPointerType.Float, false, /*7*/ 10 * sizeof(float), new IntPtr(7 * sizeof(float)));
+            GL.VertexAttribPointer(3, 1, VertexAttribPointerType.Float, false, /*9*/ 10 * sizeof(float), new IntPtr(9 * sizeof(float)));
                         
-            Gl.DrawElements(PrimitiveType.Triangles, Elements.Length, DrawElementsType.UnsignedInt, IntPtr.Zero);
+            GL.DrawElements(PrimitiveType.Triangles, Elements.Length, DrawElementsType.UnsignedInt, IntPtr.Zero);
                         
-            Gl.DisableVertexAttribArray(0);
-            Gl.DisableVertexAttribArray(1);
-            Gl.DisableVertexAttribArray(2);
-            Gl.DisableVertexAttribArray(3);
+            GL.DisableVertexAttribArray(0);
+            GL.DisableVertexAttribArray(1);
+            GL.DisableVertexAttribArray(2);
+            GL.DisableVertexAttribArray(3);
         }
         
         public void BuildVertexArray()
