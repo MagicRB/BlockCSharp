@@ -115,8 +115,7 @@ namespace BlockCSharp
             if (_updateViewMatrix)
             {
                 _viewProjectionMatrix = glm.perspective(glm.radians(90), 4.0f / 3.0f, 0.1f, 100.0f) * glm.translate(mat4.identity(), _cameraPosition);
-                Console.WriteLine(_cameraPosition);
-                Console.WriteLine(_cameraYZRotation);
+                Console.WriteLine(_cameraPosition.z);
                 _updateViewMatrix = false;
             }
 
