@@ -1,42 +1,50 @@
-﻿namespace BlockCSharp
+﻿using GlmNet;
+
+namespace BlockCSharp
 {
     public class Vector2
     {
         public float X;
         public float Y;
-        
+
         public Vector2()
         {
             X = 0;
             Y = 0;
         }
-        
+
         public Vector2(float x, float y)
         {
             X = x;
             Y = y;
         }
 
+        public static implicit operator vec2(Vector2 v)
+        {
+            return new vec2(v.X, v.Y);
+        }
+
+
         public override string ToString()
         {
             return "[" + X + ", " + Y + "]";
         }
-        
+
         public static Vector2 operator +(Vector2 b, Vector2 c)
         {
             return new Vector2(b.X + c.X, b.Y + c.Y);
         }
-        
+
         public static Vector2 operator -(Vector2 b, Vector2 c)
         {
             return new Vector2(b.X - c.X, b.Y - c.Y);
         }
-        
+
         public static Vector2 operator *(Vector2 b, Vector2 c)
         {
             return new Vector2(b.X * c.X, b.Y * c.Y);
         }
-        
+
         public static Vector2 operator /(Vector2 b, Vector2 c)
         {
             return new Vector2(b.X / c.X, b.Y / c.Y);
@@ -46,7 +54,7 @@
         {
             return Equals(b, c);
         }
-        
+
         public static bool operator !=(Vector2 b, Vector2 c)
         {
             return !Equals(b, c);
@@ -61,7 +69,7 @@
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
+            if (obj.GetType() != GetType()) return false;
             return Equals((Vector2) obj);
         }
 

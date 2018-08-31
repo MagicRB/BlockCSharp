@@ -1,12 +1,14 @@
-﻿namespace BlockCSharp
+﻿using GlmNet;
+
+namespace BlockCSharp
 {
     public class Vector4
     {
+        public float W;
         public float X;
         public float Y;
         public float Z;
-        public float W;
-        
+
         public Vector4()
         {
             X = 0;
@@ -14,7 +16,7 @@
             Z = 0;
             W = 0;
         }
-        
+
         public Vector4(float x, float y, float z, float w)
         {
             X = x;
@@ -23,26 +25,38 @@
             W = w;
         }
 
+        public static implicit operator vec4(Vector4 v)
+        {
+            return new vec4(v.X, v.Y, v.Z, v.W);
+        }
+        
+        public static implicit operator OpenTK.Vector4(Vector4 v)
+        {
+            return new OpenTK.Vector4(v.X, v.Y, v.Z, v.W);
+        }
+
+
+
         public override string ToString()
         {
             return "[" + X + ", " + Y + ", " + Z + ", " + W + "]";
         }
-        
+
         public static Vector4 operator +(Vector4 b, Vector4 c)
         {
             return new Vector4(b.X + c.X, b.Y + c.Y, b.Z + c.Z, b.W + c.W);
         }
-        
+
         public static Vector4 operator -(Vector4 b, Vector4 c)
         {
             return new Vector4(b.X - c.X, b.Y - c.Y, b.Z - c.Z, b.W - c.W);
         }
-        
+
         public static Vector4 operator *(Vector4 b, Vector4 c)
         {
             return new Vector4(b.X * c.X, b.Y * c.Y, b.Z * c.Z, b.W * c.W);
         }
-        
+
         public static Vector4 operator /(Vector4 b, Vector4 c)
         {
             return new Vector4(b.X / c.X, b.Y / c.Y, b.Z / c.Z, b.W / c.W);
@@ -52,7 +66,7 @@
         {
             return Equals(b, c);
         }
-        
+
         public static bool operator !=(Vector4 b, Vector4 c)
         {
             return !Equals(b, c);
@@ -67,7 +81,7 @@
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
+            if (obj.GetType() != GetType()) return false;
             return Equals((Vector4) obj);
         }
 

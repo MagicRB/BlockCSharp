@@ -2,6 +2,9 @@
 {
     public class ExpandedBlockPosition
     {
+        public Vector2i ChunkPosition;
+        public Vector3i PositionInChunk;
+
         public ExpandedBlockPosition(Vector2i chunkPosition, Vector3i positionInChunk)
         {
             ChunkPosition = chunkPosition;
@@ -24,8 +27,5 @@
         {
             return "{" + ChunkPosition + "; " + PositionInChunk + "}";
         }
-
-        public Vector2i ChunkPosition;
-        public Vector3i PositionInChunk;
     }
 }

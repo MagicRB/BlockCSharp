@@ -4,10 +4,10 @@
     {
         public static float[] GenRawVertexData(Vertex[] vertices)
         {
-            float[] rawData = new float[vertices.Length * 10];
+            var rawData = new float[vertices.Length * 10];
 
-            int i = 0;
-            
+            var i = 0;
+
             foreach (var vertex in vertices)
             {
                 rawData[i + 0] = vertex.Position.X;
@@ -20,7 +20,7 @@
                 rawData[i + 7] = vertex.UV.X;
                 rawData[i + 8] = vertex.UV.Y;
                 rawData[i + 9] = vertex.RenderType;
-                
+
                 i += 10;
             }
 

@@ -5,7 +5,7 @@ namespace BlockCSharp.OpenGLAdditions
     public class VertexBuffer
     {
         public int Id;
-        
+
         public void Create()
         {
             GL.GenBuffers(1, out Id);
@@ -18,7 +18,8 @@ namespace BlockCSharp.OpenGLAdditions
 
         public void SetData(float[] rawData)
         {
-            GL.BufferData(BufferTarget.ArrayBuffer, rawData.Length * sizeof(float), rawData, BufferUsageHint.StaticDraw);
+            GL.BufferData(BufferTarget.ArrayBuffer, rawData.Length * sizeof(float), rawData,
+                BufferUsageHint.StaticDraw);
         }
     }
 }

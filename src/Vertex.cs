@@ -1,14 +1,12 @@
-﻿
-
-namespace BlockCSharp
+﻿namespace BlockCSharp
 {
     public class Vertex
     {
-        public Vector3 Position;
         public Color4 Color;
-        public Vector2 UV;
+        public Vector3 Position;
         public float RenderType;
-        
+        public Vector2 UV;
+
         public Vertex()
         {
             Position = new Vector3();

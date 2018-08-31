@@ -1,36 +1,28 @@
-﻿using System;
-
-namespace BlockCSharp
+﻿namespace BlockCSharp
 {
     public class Model
     {
-        public Vertex[] Vertices;
-        public uint VertexCount;
-        public uint[] Elements;
         public uint ElementCount;
+        public uint[] Elements;
 
         public int TriangleCount;
-        
+        public uint VertexCount;
+        public Vertex[] Vertices;
+
         public override string ToString()
         {
-            String vertices = String.Empty;
+            var vertices = string.Empty;
 
-            for (int i = 0; i < VertexCount; i++)
-            {
-                vertices += Vertices[i] + "; ";
-            }
-            
-            String elements = String.Empty;
+            for (var i = 0; i < VertexCount; i++) vertices += Vertices[i] + "; ";
 
-            for (int i = 0; i < ElementCount; i++)
-            {
-                elements += Elements[i] + "; ";
-            }
+            var elements = string.Empty;
+
+            for (var i = 0; i < ElementCount; i++) elements += Elements[i] + "; ";
 
             elements = elements.TrimEnd().TrimEnd();
             vertices = vertices.TrimEnd().TrimEnd();
-            
-            String str = VertexCount + ": {" + vertices + "}\n" + ElementCount + ": {" + elements + "}\n";
+
+            var str = VertexCount + ": {" + vertices + "}\n" + ElementCount + ": {" + elements + "}\n";
 
             return str;
         }

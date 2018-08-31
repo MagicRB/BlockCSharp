@@ -1,13 +1,6 @@
-﻿using System;
-using System.Timers;
-using BlockCSharp.Blocks;
-using BlockCSharp.OpenGLAdditions;
-using OpenTK;
-using OpenTK.Graphics.OpenGL4;
-
-namespace BlockCSharp
+﻿namespace BlockCSharp
 {
-    class Program
+    internal class Program
     {
 //        private static double _graphicsFrameTime = 1000 / 30;
 //        private static double _logicFrameTime = 1000 / 20;
@@ -22,15 +15,15 @@ namespace BlockCSharp
 //        
 //        private static volatile int _graphicsRemainingTime = 1;
 //        private static volatile int _logicRemainingTime = 1;
-        
+
 //        private static Shader _vertexShader = new Shader();
 //        private static Shader _fragmentShader = new Shader();
 //        private static int _shaderProgramId = 0;
 //
 //        private static int _vertexArrayId = 0;
-        
+
 //        private static Matrix4 _viewProjectionMatrix;
-        
+
 //        static void OpenGlSetup()
 //        {
 //            _vertexArrayId = GL.GenVertexArray();
@@ -87,17 +80,14 @@ namespace BlockCSharp
 //            _logicTimer.Start();
 //        }
 //        
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            
-            
-            
             _blockSharp = new BlockSharp();
             _blockSharp.Context.MakeCurrent(_blockSharp.WindowInfo);
             _blockSharp.Run(20, 60);
-            
+
 //            OpenGlSetup();
-                
+
             //TimerSetup();
 
             //World.World.SetBlock(new Vector3i(-1, 0, 0), typeof(TestBlock));

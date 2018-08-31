@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace BlockCSharp.Interfaces
+﻿namespace BlockCSharp.Interfaces
 {
     public interface IBlockModel
     {

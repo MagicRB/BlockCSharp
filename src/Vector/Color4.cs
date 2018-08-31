@@ -1,12 +1,14 @@
-﻿namespace BlockCSharp
+﻿using GlmNet;
+
+namespace BlockCSharp
 {
     public class Color4
     {
-        public float R;
-        public float G;
-        public float B;
         public float A;
-        
+        public float B;
+        public float G;
+        public float R;
+
         public Color4()
         {
             R = 0;
@@ -23,6 +25,12 @@
             A = a;
         }
 
+        public static implicit operator vec4(Color4 c)
+        {
+            return new vec4(c.R, c.B, c.G, c.A);
+        }
+
+
         public override string ToString()
         {
             return "[" + R + ", " + G + ", " + B + ", " + A + "]";
@@ -32,17 +40,17 @@
         {
             return new Color4(b.R + c.R, b.G + c.G, b.B + c.B, b.A + c.A);
         }
-        
+
         public static Color4 operator -(Color4 b, Color4 c)
         {
             return new Color4(b.R - c.R, b.G - c.G, b.B - c.B, b.A - c.A);
         }
-        
+
         public static Color4 operator *(Color4 b, Color4 c)
         {
             return new Color4(b.R * c.R, b.G * c.G, b.B * c.B, b.A * c.A);
         }
-        
+
         public static Color4 operator /(Color4 b, Color4 c)
         {
             return new Color4(b.R / c.R, b.G / c.G, b.B / c.B, b.A / c.A);
@@ -52,7 +60,7 @@
         {
             return Equals(b, c);
         }
-        
+
         public static bool operator !=(Color4 b, Color4 c)
         {
             return !Equals(b, c);
@@ -67,7 +75,7 @@
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
+            if (obj.GetType() != GetType()) return false;
             return Equals((Color4) obj);
         }
 
